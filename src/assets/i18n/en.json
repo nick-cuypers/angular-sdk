@@ -17,6 +17,7 @@
     "navigation": {
         "confirmation_dialog": "Confirmation Dialog",
         "expandable_card": "Expandable Card",
+        "external_link": "External Link",
         "filter_table": "Filter Table",
         "global_error_handler": "Global Error Handler",
         "in_memory_logging": "In Memory Logging",
