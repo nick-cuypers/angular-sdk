@@ -38,7 +38,13 @@ export class LeftSidenavComponent {
             return
         }
 
-        if ((navigationItem.children?.length ?? 0) > 0) {
+        if (navigationItem.isExternalLink) {
+            if (navigationItem.children && navigationItem.children.length > 0) {
+                throw new Error('External link navigation items cannot have children.')
+            }
+            window.open(navigationItem.fullRouterPath, '_blank')
+            this.navigated.emit(navigationItem)
+        } else if ((navigationItem.children?.length ?? 0) > 0) {
             this.toggleNavigationItemOpened(navigationItem)
         } else if (navigationItem.fullRouterPath) {
             this._router.navigateByUrl(navigationItem.fullRouterPath)
